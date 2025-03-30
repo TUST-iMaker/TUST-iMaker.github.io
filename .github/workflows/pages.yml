@@ -15,8 +15,15 @@ jobs:
           # If your repository depends on submodule, please see: https://github.com/actions/checkout
           submodules: recursive
       
-      - name: Update submodules to latest commit from remote
-        run: git submodule update --remote --merge
+      - name: Force update submodules to latest remote version
+        run: |
+          git submodule foreach --recursive '
+            branch=$(git config -f $toplevel/.gitmodules submodule.$name.branch || echo master);
+            echo "Updating $name on branch $branch";
+            git fetch origin $branch;
+            git checkout $branch;
+            git reset --hard origin/$branch;
+          '
 
       - name: Use Node.js 20
         uses: actions/setup-node@v4
