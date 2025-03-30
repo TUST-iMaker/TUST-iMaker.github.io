@@ -14,6 +14,10 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           # If your repository depends on submodule, please see: https://github.com/actions/checkout
           submodules: recursive
+      
+      - name: Update submodules to latest commit from remote
+        run: git submodule update --remote --merge
+
       - name: Use Node.js 20
         uses: actions/setup-node@v4
         with:
