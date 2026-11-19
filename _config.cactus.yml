@@ -1,0 +1,17 @@
+# Theme overrides for hexo-theme-cactus (https://github.com/probberechts/hexo-theme-cactus)
+# Migrated from the former TUST-iMaker/hexo-theme-cactus fork.
+
+nav:
+  home: /
+  校友录: /alumni
+  文章: /writing
+  projects: https://github.com/TUST-iMaker
+
+social_links: false
+
+posts_overview:
+  show_all_posts: false
+  post_count: 10
+  sort_updated: false
+
+colorscheme: white
